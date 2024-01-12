@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { PersonalInfo } from './components/PersonalInfo';
+import { Education } from './components/Education';
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -21,6 +22,7 @@ function App() {
       <div className='h-screen bg-[#f3f4f6] flex justify-between px-32 py-4 gap-10'>
         <div className='max-w-[320px] w-full'>
           <PersonalInfo personalInfo={personalInfo} onChange={onPersonalInfoChange} />
+          <Education />
         </div>
 
         {/* right side */}
