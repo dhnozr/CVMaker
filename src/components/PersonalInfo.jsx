@@ -33,7 +33,7 @@ export const PersonalInfo = ({ personalInfo, onChange }) => {
           name='tel'
           id='tel'
           type='tel'
-          placeholder='552 451 9059'
+          placeholder='+90 552 451 9059'
           value={personalInfo.tel}
           onChange={onChange}
         />
@@ -47,7 +47,7 @@ export const PersonalInfo = ({ personalInfo, onChange }) => {
           value={personalInfo.address}
           onChange={onChange}
         />
-        <label htmlFor='social'>Social</label>
+        <label htmlFor='address'>Social</label>
         <input
           className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1 '
           name='social'
