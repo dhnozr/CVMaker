@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { PersonalInfo } from './components/PersonalInfo';
 import { Education } from './components/Education';
+import { Experience } from './components/Experience';
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -29,7 +30,12 @@ function App() {
           <div className='mb-4 '>
             <PersonalInfo personalInfo={personalInfo} onChange={onPersonalInfoChange} />
           </div>
-          <Education addSchools={addSchools} />
+          <div>
+            <Education addSchools={addSchools} />
+          </div>
+          <div>
+            <Experience />
+          </div>
         </div>
 
         {/* right side */}
