@@ -116,28 +116,30 @@ export const Education = ({ addSchools }) => {
                 onChange={onEducationChange}
               />
             </label>
-            <label className='flex flex-col'>
-              Start Date
-              <input
-                type='number'
-                placeholder='Start Date'
-                className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
-                name='startDate'
-                value={education.startDate}
-                onChange={onEducationChange}
-              />
-            </label>
-            <label className='flex flex-col'>
-              End Date
-              <input
-                type='number'
-                placeholder='End Date'
-                className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
-                name='endDate'
-                value={education.endDate}
-                onChange={onEducationChange}
-              />
-            </label>
+            <div className='flex item justify-between gap-4 '>
+              <label className='flex flex-1 flex-col'>
+                Start Date
+                <input
+                  type='number'
+                  placeholder='Start Date'
+                  className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
+                  name='startDate'
+                  value={education.startDate}
+                  onChange={onEducationChange}
+                />
+              </label>
+              <label className='flex flex-1 flex-col'>
+                End Date
+                <input
+                  type='number'
+                  placeholder='End Date'
+                  className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
+                  name='endDate'
+                  value={education.endDate}
+                  onChange={onEducationChange}
+                />
+              </label>
+            </div>
             <label className='flex flex-col'>
               Location
               <input
@@ -150,7 +152,9 @@ export const Education = ({ addSchools }) => {
               />
             </label>
 
-            <button onClick={handleSubmitForm}>Submit</button>
+            <button className='w-fit ml-auto px-6 py-2 bg-blue-500 rounded-md' onClick={handleSubmitForm}>
+              Save
+            </button>
           </form>
         </div>
       </div>
