@@ -1,34 +1,159 @@
 import React, { useState } from 'react';
 
-export const Education = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className='flex flex-col gap-2 '>
-      <button onClick={() => setIsOpen(prev => !prev)} className=''>
-        Education +
-      </button>
+export const Education = ({ addSchools }) => {
+  const [schools, setSchools] = useState([]);
 
-      {/* education drawer part */}
-      <div
-        className={`${isOpen ? 'max-h-[400px] ' : 'max-h-0  '} overflow-hidden bg-white transition-all duration-500  `}
-      >
-        <div className='flex flex-col'>
-          <label htmlFor='education'>Okul adi</label>
-          <input className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1' type='text' />
-        </div>
-        <div className='flex flex-col'>
-          <label htmlFor='education'>Okul adi</label>
-          <input className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1' type='text' />
-        </div>
-        <div className='flex flex-col'>
-          <label htmlFor='education'>Okul adi</label>
-          <input className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1' type='text' />
-        </div>
-        <div className='flex flex-col'>
-          <label htmlFor='education'>Okul adi</label>
-          <input className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1' type='text' />
+  const [editingIndex, setEditingIndex] = useState(null);
+
+  const handleEditSchool = index => {
+    setEditingIndex(index);
+    setEducation[schools[index]];
+    setIsOpen(true);
+  };
+
+  const [education, setEducation] = useState({
+    school: '',
+    degree: '',
+  });
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onEducationChange = event => {
+    const { name, value } = event.target;
+
+    setEducation(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleaddSchool = () => {
+    if (!education.school.trim() || !education.degree.trim()) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    if (editingIndex !== null) {
+      setSchools(prev => prev.map((item, index) => (index === editingIndex ? education : item)));
+      setEditingIndex(null);
+    } else {
+      addSchools(education);
+      setSchools(prev => [...prev, education]);
+    }
+
+    setEducation({
+      school: '',
+      degree: '',
+      startDate: '',
+      endDate: '',
+      location: '',
+    });
+  };
+
+  const removeSchools = index => {
+    setSchools(prev => prev.filter((_, i) => i !== index));
+  };
+
+  const handleSubmitForm = event => {
+    event.preventDefault();
+    handleaddSchool();
+    setIsOpen(false);
+  };
+
+  return (
+    <>
+      <div className={`${isOpen ? 'bg-white p-4' : ''} `}>
+        <div className={`${!isOpen ? 'grid gap-4' : ''} `}>
+          {/* title */}
+          <div
+            className={`${
+              isOpen
+                ? 'flex items-center justify-between font-bold text-xl rounded-lg'
+                : 'flex items-center justify-between font-bold text-xl  bg-white p-4 rounded-xl'
+            }`}
+          >
+            <h2>Education</h2>
+            <p onClick={() => setIsOpen(prev => !prev)} className='text-4xl cursor-pointer'>
+              +
+            </p>
+          </div>
+          {/* title end */}
+
+          {!isOpen && (
+            <div className='bg-white  text-xl rounded-lg'>
+              {schools?.map((school, index) => (
+                <div key={index} className='flex items-center p-2 justify-between'>
+                  <p onClick={() => handleEditSchool(index)}>{school?.school}</p>
+                  <p onClick={() => removeSchools(index)}>🗑️</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <form
+            className={`${
+              isOpen ? 'opacity-1 translate-y-0 h-full grid gap-4  ' : '-translate-y-24 opacity-0 invisible   h-0'
+            } transition-all duration-300`}
+          >
+            <label className='flex flex-col gap-2'>
+              School
+              <input
+                type='text'
+                placeholder='Enter Scholl'
+                className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
+                name='school'
+                value={education.school}
+                onChange={onEducationChange}
+              />
+            </label>
+            <label className='flex flex-col'>
+              Degree
+              <input
+                type='text'
+                placeholder='Field of Study'
+                className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
+                name='degree'
+                value={education.degree}
+                onChange={onEducationChange}
+              />
+            </label>
+            <label className='flex flex-col'>
+              Start Date
+              <input
+                type='number'
+                placeholder='Start Date'
+                className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
+                name='startDate'
+                value={education.startDate}
+                onChange={onEducationChange}
+              />
+            </label>
+            <label className='flex flex-col'>
+              End Date
+              <input
+                type='number'
+                placeholder='End Date'
+                className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
+                name='endDate'
+                value={education.endDate}
+                onChange={onEducationChange}
+              />
+            </label>
+            <label className='flex flex-col'>
+              Location
+              <input
+                type='text'
+                placeholder='Location'
+                className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
+                name='location'
+                value={education.location}
+                onChange={onEducationChange}
+              />
+            </label>
+
+            <button onClick={handleSubmitForm}>Submit</button>
+          </form>
         </div>
       </div>
-    </div>
+    </>
   );
 };
