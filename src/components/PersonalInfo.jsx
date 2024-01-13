@@ -3,7 +3,7 @@ import React from 'react';
 export const PersonalInfo = ({ personalInfo, onChange }) => {
   return (
     <div>
-      <div className='border flex flex-col gap-2 bg-white p-4 rounded-xl  '>
+      <div className='flex flex-col gap-2 bg-white p-4 rounded-xl  '>
         <div>
           <h2 className='text-2xl font-bold'>Personal Details</h2>
         </div>
