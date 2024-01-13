@@ -5,12 +5,17 @@ import { Education } from './components/Education';
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
     fullName: '',
-
     email: '',
     tel: '',
     address: '',
     social: '',
   });
+
+  const [schools, setSchools] = useState([]);
+
+  const addSchools = newSchool => {
+    setSchools(prev => ({ ...prev, newSchool }));
+  };
 
   const onPersonalInfoChange = event => {
     const { name, value } = event.target;
@@ -19,16 +24,18 @@ function App() {
 
   return (
     <>
-      <div className='h-screen bg-[#f3f4f6] flex justify-between px-32 py-4 gap-10'>
-        <div className='max-w-[320px] w-full'>
-          <PersonalInfo personalInfo={personalInfo} onChange={onPersonalInfoChange} />
-          <Education />
+      <div className='min-h-screen  bg-[#f3f4f6] flex justify-center  py-4 gap-10'>
+        <div className='max-w-[340px] w-full p-2'>
+          <div className='mb-4 '>
+            <PersonalInfo personalInfo={personalInfo} onChange={onPersonalInfoChange} />
+          </div>
+          <Education addSchools={addSchools} />
         </div>
 
         {/* right side */}
-        <div className='border bg-white flex-1 max-w-xl p-2'>
+        <div className=' bg-white  max-w-[570px] min-h-screen  w-full p-2'>
           {/* top section personal info */}
-          <div className='flex flex-col items-center'>
+          <div className='flex flex-col items-center border-b '>
             <div>
               <h2 className='text-4xl'>{personalInfo.fullName || 'Duhan Ozarslan'}</h2>
             </div>
