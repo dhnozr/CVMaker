@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <div className='min-h-screen  bg-[#f3f4f6] flex justify-center  py-4 gap-10'>
-        <div className='max-w-[340px] w-full p-2'>
+        <div className='max-w-[500px] w-full p-2'>
           <div className='mb-4 '>
             <PersonalInfo personalInfo={personalInfo} onChange={onPersonalInfoChange} />
           </div>
