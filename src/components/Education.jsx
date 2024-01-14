@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Education = ({ addSchools }) => {
+export const Education = ({ addSchools, removeSchool }) => {
   const [schools, setSchools] = useState([]);
 
   const [editingIndex, setEditingIndex] = useState(null);
@@ -14,6 +14,8 @@ export const Education = ({ addSchools }) => {
   const [education, setEducation] = useState({
     school: '',
     degree: '',
+    startDate: '',
+    endDate: '',
   });
   const [isOpen, setIsOpen] = useState(false);
 
@@ -45,12 +47,12 @@ export const Education = ({ addSchools }) => {
       degree: '',
       startDate: '',
       endDate: '',
-      location: '',
     });
   };
 
   const removeSchools = index => {
     setSchools(prev => prev.filter((_, i) => i !== index));
+    removeSchool(index);
   };
 
   const handleSubmitForm = event => {
@@ -140,17 +142,6 @@ export const Education = ({ addSchools }) => {
                 />
               </label>
             </div>
-            <label className='flex flex-col'>
-              Location
-              <input
-                type='text'
-                placeholder='Location'
-                className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
-                name='location'
-                value={education.location}
-                onChange={onEducationChange}
-              />
-            </label>
 
             <button className='w-fit ml-auto px-6 py-2 bg-blue-500 rounded-md' onClick={handleSubmitForm}>
               Save
