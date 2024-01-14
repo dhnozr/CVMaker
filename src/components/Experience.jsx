@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Experience = ({ addExperience }) => {
+export const Experience = ({ addExperience, removeExperience }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [experiences, setExperiences] = useState([]);
   const [editingIndex, setEditingIndex] = useState(null);
@@ -62,6 +62,7 @@ export const Experience = ({ addExperience }) => {
 
   const removeExperiences = index => {
     setExperiences(prev => prev.filter((_, i) => i !== index));
+    removeExperience(index);
   };
 
   const handleSubmitForm = event => {
@@ -90,9 +91,9 @@ export const Experience = ({ addExperience }) => {
           {/* title end */}
 
           {!isOpen && (
-            <div className='bg-white  text-xl rounded-lg'>
+            <div className='mb-4'>
               {experiences?.map((exp, index) => (
-                <div key={index} className='flex items-center p-4 justify-between'>
+                <div key={index} className='flex items-center p-4 justify-between bg-white rounded-lg mb-3'>
                   <p onClick={() => handleEditExperience(index)}>{exp?.companyName}</p>
                   <p className='cursor-pointer' onClick={() => removeExperiences(index)}>
                     🗑️
@@ -133,7 +134,7 @@ export const Experience = ({ addExperience }) => {
               <label className='flex flex-1 flex-col'>
                 Start Date
                 <input
-                  type='number'
+                  type='text'
                   placeholder='Start Date'
                   className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
                   name='startDate'
@@ -144,7 +145,7 @@ export const Experience = ({ addExperience }) => {
               <label className='flex flex-1 flex-col'>
                 End Date
                 <input
-                  type='number'
+                  type='text'
                   placeholder='End Date'
                   className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
                   name='endDate'
@@ -169,7 +170,7 @@ export const Experience = ({ addExperience }) => {
               Description
               <input
                 type='text'
-                placeholder='Location'
+                placeholder='Optional'
                 className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
                 name='description'
                 value={experienceData.description}
