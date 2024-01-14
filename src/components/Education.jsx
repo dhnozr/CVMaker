@@ -61,7 +61,7 @@ export const Education = ({ addSchools }) => {
 
   return (
     <>
-      <div className={`${isOpen ? 'bg-white p-4' : ''} `}>
+      <div className={`${isOpen ? 'bg-white p-4 mb-4' : ''} `}>
         <div className={`${!isOpen ? 'grid gap-4' : ''} `}>
           {/* title */}
           <div
