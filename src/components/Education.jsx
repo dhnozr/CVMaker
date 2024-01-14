@@ -16,7 +16,8 @@ export const Education = ({ addSchools, removeSchool }) => {
     degree: '',
     startDate: '',
     endDate: '',
-    optional: '',
+    description: '',
+    location: '',
   });
   const [isOpen, setIsOpen] = useState(false);
 
@@ -48,7 +49,8 @@ export const Education = ({ addSchools, removeSchool }) => {
       degree: '',
       startDate: '',
       endDate: '',
-      optional: '',
+      description: '',
+      location: '',
     });
   };
 
@@ -83,9 +85,9 @@ export const Education = ({ addSchools, removeSchool }) => {
           {/* title end */}
 
           {!isOpen && (
-            <div className='bg-white  text-xl rounded-lg'>
+            <div className='mb-4'>
               {schools?.map((school, index) => (
-                <div key={index} className='flex items-center p-2 justify-between'>
+                <div key={index} className='flex items-center  justify-between mb-3 bg-white rounded-lg p-4'>
                   <p onClick={() => handleEditSchool(index)}>{school?.school}</p>
                   <p onClick={() => removeSchools(index)}>🗑️</p>
                 </div>
@@ -145,13 +147,24 @@ export const Education = ({ addSchools, removeSchool }) => {
               </label>
             </div>
             <label className='flex flex-col'>
+              Location
+              <input
+                type='text'
+                placeholder='Location'
+                className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
+                name='location'
+                value={education.location}
+                onChange={onEducationChange}
+              />
+            </label>
+            <label className='flex flex-col'>
               Description
               <input
                 type='text'
                 placeholder='Optional'
                 className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
-                name='location'
-                value={education.location}
+                name='description'
+                value={education.description}
                 onChange={onEducationChange}
               />
             </label>
