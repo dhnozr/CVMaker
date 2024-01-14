@@ -16,6 +16,7 @@ export const Education = ({ addSchools, removeSchool }) => {
     degree: '',
     startDate: '',
     endDate: '',
+    optional: '',
   });
   const [isOpen, setIsOpen] = useState(false);
 
@@ -47,6 +48,7 @@ export const Education = ({ addSchools, removeSchool }) => {
       degree: '',
       startDate: '',
       endDate: '',
+      optional: '',
     });
   };
 
@@ -142,6 +144,17 @@ export const Education = ({ addSchools, removeSchool }) => {
                 />
               </label>
             </div>
+            <label className='flex flex-col'>
+              Description
+              <input
+                type='text'
+                placeholder='Optional'
+                className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
+                name='location'
+                value={education.location}
+                onChange={onEducationChange}
+              />
+            </label>
 
             <button className='w-fit ml-auto px-6 py-2 bg-blue-500 rounded-md' onClick={handleSubmitForm}>
               Save
