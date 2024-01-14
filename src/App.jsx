@@ -13,9 +13,14 @@ function App() {
   });
 
   const [schools, setSchools] = useState([]);
+  const [experiences, setExperiences] = useState([]);
 
   const addSchools = newSchool => {
     setSchools(prev => ({ ...prev, newSchool }));
+  };
+
+  const addExperience = newExperience => {
+    setExperiences(prev => ({ ...prev, newExperience }));
   };
 
   const onPersonalInfoChange = event => {
@@ -34,7 +39,7 @@ function App() {
             <Education addSchools={addSchools} />
           </div>
           <div>
-            <Experience />
+            <Experience addExperience={addExperience} />
           </div>
         </div>
 
