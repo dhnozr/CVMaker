@@ -3,7 +3,7 @@ import { PersonalInfo } from './components/PersonalInfo';
 import { Education } from './components/Education';
 import { Experience } from './components/Experience';
 import { Skills } from './components/Skills';
-
+import { PdfRender } from './components/PdfRender';
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
     fullName: '',
@@ -61,6 +61,9 @@ function App() {
           </div>
           <div>
             <Skills addSkills={addSkills} removeSkill={removeSkills} />
+          </div>
+          <div>
+            <PdfRender personalInfo={personalInfo} experiences={experiences} skills={skills} schools={schools} />
           </div>
         </div>
 
@@ -139,16 +142,18 @@ function App() {
             <h2 className='text-xl uppercase border-b border-black mb-2'>Education</h2>
             {schools.map((school, index) => (
               <div className='px-4 mb-4' key={index}>
-                <div className='flex gap-2'>
-                  <p className='font-semibold'>{school?.school}</p>
-                  <div className='flex flex-col  gap-1'>
+                <div className='flex justify-between items-center gap-2'>
+                  <div>
+                    <p className='font-semibold'>{school?.school}</p>
+                    <p className='italic'>{school?.degree}</p>
+                  </div>
+
+                  <div className='flex flex-col items-end  gap-1'>
+                    <p>{school?.location}</p>
                     <div className='flex gap-1'>
                       <p>{school?.startDate}</p> / <p>{school?.endDate}</p>
                     </div>
                   </div>
-                </div>
-                <div className='mb-1 '>
-                  <p className='italic'>{school?.degree}</p>
                 </div>
 
                 <p className='p-1'>{school?.description}</p>
