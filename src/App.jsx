@@ -84,82 +84,91 @@ function App() {
           {/* top section end */}
 
           {/* show experience */}
-          <div className='mb-4'>
-            <h2 className='text-xl uppercase border-b border-black mb-2'>Experience</h2>
-            {experiences.map((exp, index) => (
-              <div className='px-4' key={index}>
-                <div className='flex justify-between mb-2'>
-                  <div>
-                    <p className='font-semibold'>{exp?.companyName}</p>
-                    <p className='italic'>{exp?.positionTitle}</p>
-                  </div>
-                  <div className='flex flex-col items-end'>
-                    <p>{exp?.location}</p>
-                    <div className='flex gap-1'>
-                      <p>{exp?.startDate}</p> / <p>{exp?.endDate}</p>
+          {experiences.length >= 1 ? (
+            <div className='mb-4'>
+              <h2 className='text-xl uppercase border-b border-black mb-2'>Experience</h2>
+              {experiences.map((exp, index) => (
+                <div className='px-4' key={index}>
+                  <div className='flex justify-between mb-2'>
+                    <div>
+                      <p className='font-semibold'>{exp?.companyName}</p>
+                      <p className='italic'>{exp?.positionTitle}</p>
+                    </div>
+                    <div className='flex flex-col items-end'>
+                      <p>{exp?.location}</p>
+                      <div className='flex gap-1'>
+                        <p>{exp?.startDate}</p> / <p>{exp?.endDate}</p>
+                      </div>
                     </div>
                   </div>
+                  <div className='flex items-center gap-4 '>
+                    <p>{exp?.description}</p>
+                  </div>
+                  {exp.details.map((exp, index) => (
+                    <li>{exp}</li>
+                  ))}
                 </div>
-                <div className='flex items-center gap-4 '>
-                  <p>{exp?.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : null}
 
           {/* show skills */}
 
-          <div className='mb-4'>
-            <h2 className='text-xl uppercase border-b border-black mb-2'>Skills</h2>
-            {skills.map((skill, index) => (
-              <div className='px-4' key={index}>
-                <div className='flex items-center gap-2'>
-                  <p className='w-24'>Languages:</p>
-                  <p>{skill?.languages}</p>
+          {skills.length >= 1 ? (
+            <div className='mb-4'>
+              <h2 className='text-xl uppercase border-b border-black mb-2'>Skills</h2>
+              {skills.map((skill, index) => (
+                <div className='px-4' key={index}>
+                  <div className='flex items-center gap-2'>
+                    <p className='w-24'>Languages:</p>
+                    <p>{skill?.languages}</p>
+                  </div>
+                  <div className='flex items-center gap-2'>
+                    <p className='w-24'>Frameworks:</p>
+                    <p>{skill?.frameworks}</p>
+                  </div>
+                  <div className='flex items-center gap-2'>
+                    <p className='w-24'>Databases:</p>
+                    <p>{skill?.database}</p>
+                  </div>
+                  <div className='flex items-center gap-2'>
+                    <p className='w-24'>API:</p>
+                    <p>{skill?.api}</p>
+                  </div>
+                  <div className='flex items-center gap-2'>
+                    <p className='w-24'>Tools:</p>
+                    <p>{skill?.tools}</p>
+                  </div>
                 </div>
-                <div className='flex items-center gap-2'>
-                  <p className='w-24'>Frameworks:</p>
-                  <p>{skill?.frameworks}</p>
-                </div>
-                <div className='flex items-center gap-2'>
-                  <p className='w-24'>Databases:</p>
-                  <p>{skill?.database}</p>
-                </div>
-                <div className='flex items-center gap-2'>
-                  <p className='w-24'>API:</p>
-                  <p>{skill?.api}</p>
-                </div>
-                <div className='flex items-center gap-2'>
-                  <p className='w-24'>Tools:</p>
-                  <p>{skill?.tools}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : null}
 
           {/* show education  */}
-          <div>
-            <h2 className='text-xl uppercase border-b border-black mb-2'>Education</h2>
-            {schools.map((school, index) => (
-              <div className='px-4 mb-4' key={index}>
-                <div className='flex justify-between items-center gap-2'>
-                  <div>
-                    <p className='font-semibold'>{school?.school}</p>
-                    <p className='italic'>{school?.degree}</p>
-                  </div>
+          {schools.length >= 1 ? (
+            <div>
+              <h2 className='text-xl uppercase border-b border-black mb-2'>Education</h2>
+              {schools.map((school, index) => (
+                <div className='px-4 mb-4' key={index}>
+                  <div className='flex justify-between items-center gap-2'>
+                    <div>
+                      <p className='font-semibold'>{school?.school}</p>
+                      <p className='italic'>{school?.degree}</p>
+                    </div>
 
-                  <div className='flex flex-col items-end  gap-1'>
-                    <p>{school?.location}</p>
-                    <div className='flex gap-1'>
-                      <p>{school?.startDate}</p> / <p>{school?.endDate}</p>
+                    <div className='flex flex-col items-end  gap-1'>
+                      <p>{school?.location}</p>
+                      <div className='flex gap-1'>
+                        <p>{school?.startDate}</p> / <p>{school?.endDate}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <p className='p-1'>{school?.description}</p>
-              </div>
-            ))}
-          </div>
+                  <p className='p-1'>{school?.description}</p>
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       </div>
     </>
