@@ -83,10 +83,6 @@ function App() {
           </div>
           {/* top section end */}
 
-          <div>
-            <h2>Write Your Resume</h2>
-          </div>
-
           {/* show experience */}
           {experiences.length >= 1 ? (
             <div className='mb-4'>
