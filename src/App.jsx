@@ -105,7 +105,7 @@ function App() {
                     <p>{exp?.description}</p>
                   </div>
                   {exp.details.map((exp, index) => (
-                    <li>{exp}</li>
+                    <li key={index}>{exp}</li>
                   ))}
                 </div>
               ))}
