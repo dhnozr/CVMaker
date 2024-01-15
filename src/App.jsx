@@ -72,13 +72,13 @@ function App() {
           {/* top section personal info */}
           <div className='flex flex-col items-center mb-4'>
             <div>
-              <h2 className='text-4xl'>{personalInfo.fullName || 'Duhan Ozarslan'}</h2>
+              <h2 className='text-4xl'>{personalInfo.fullName || 'Full name'}</h2>
             </div>
             <div className='flex justify-center gap-1 text-sm'>
-              <p>{personalInfo.email || 'r.d.ozarslan@gmail.com'}</p>&#183;
-              <p>{personalInfo.tel || '552 451 90 59'}</p>&#183;
-              <p>{personalInfo.address || 'Istanbul'}</p>&#183;
-              <p>{personalInfo.social || 'www.linkedin.com/in/duhanozarslan'}</p>
+              <p>{personalInfo.email || 'Email'}</p>&#183;
+              <p>{personalInfo.tel || 'tel'}</p>&#183;
+              <p>{personalInfo.address || 'address'}</p>&#183;
+              <p>{personalInfo.social || 'social link'}</p>
             </div>
           </div>
           {/* top section end */}
