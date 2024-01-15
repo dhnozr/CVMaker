@@ -72,16 +72,20 @@ function App() {
           {/* top section personal info */}
           <div className='flex flex-col items-center mb-4'>
             <div>
-              <h2 className='text-4xl'>{personalInfo.fullName || 'Full name'}</h2>
+              <h2 className='text-4xl'>{personalInfo.fullName || 'Duhan Ozarslan'}</h2>
             </div>
             <div className='flex justify-center gap-1 text-sm'>
-              <p>{personalInfo.email || 'Email'}</p>&#183;
-              <p>{personalInfo.tel || 'tel'}</p>&#183;
-              <p>{personalInfo.address || 'address'}</p>&#183;
-              <p>{personalInfo.social || 'social link'}</p>
+              <p>{personalInfo.email || 'r.d.ozarslan@gmail.com'}</p>&#183;
+              <p>{personalInfo.tel || '123 456 7890'}</p>&#183;
+              <p>{personalInfo.address || 'Istanbul'}</p>&#183;
+              <p>{personalInfo.social || 'www.linkedin.com/in/duhanozarslan'}</p>
             </div>
           </div>
           {/* top section end */}
+
+          <div>
+            <h2>Write Your Resume</h2>
+          </div>
 
           {/* show experience */}
           {experiences.length >= 1 ? (
