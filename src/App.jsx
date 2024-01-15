@@ -104,9 +104,13 @@ function App() {
                   <div className='flex items-center gap-4 '>
                     <p>{exp?.description}</p>
                   </div>
-                  {exp.details.map((exp, index) => (
-                    <li key={index}>{exp}</li>
-                  ))}
+                  <div className='px-4'>
+                    {exp.details.map((exp, index) => (
+                      <li className='mb-2' key={index}>
+                        {exp}
+                      </li>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
