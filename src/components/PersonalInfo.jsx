@@ -33,7 +33,7 @@ export const PersonalInfo = ({ personalInfo, onChange }) => {
           name='tel'
           id='tel'
           type='tel'
-          placeholder='+90 552 451 9059'
+          placeholder='+90 123 123 1234'
           value={personalInfo.tel}
           onChange={onChange}
         />
