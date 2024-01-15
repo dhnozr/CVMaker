@@ -47,8 +47,7 @@ export const Experience = ({ addExperience, removeExperience }) => {
       !experienceData.companyName.trim() ||
       !experienceData.positionTitle.trim() ||
       !experienceData.startDate.trim() ||
-      !experienceData.endDate.trim() ||
-      !experienceData.description.trim()
+      !experienceData.endDate.trim()
     ) {
       alert('Please fill in all fields.');
       return;
