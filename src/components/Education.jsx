@@ -126,7 +126,7 @@ export const Education = ({ addSchools, removeSchool }) => {
               <label className='flex flex-1 flex-col gap-2'>
                 Start Date
                 <input
-                  type='number'
+                  type='text'
                   placeholder='Start Date'
                   className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
                   name='startDate'
@@ -137,7 +137,7 @@ export const Education = ({ addSchools, removeSchool }) => {
               <label className='flex flex-1 flex-col gap-2'>
                 End Date
                 <input
-                  type='number'
+                  type='text'
                   placeholder='End Date'
                   className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
                   name='endDate'
