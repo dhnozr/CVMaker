@@ -5,6 +5,8 @@ export const Experience = ({ addExperience, removeExperience }) => {
   const [experiences, setExperiences] = useState([]);
   const [editingIndex, setEditingIndex] = useState(null);
 
+  const [detail, setDetail] = useState('');
+
   const [experienceData, setExperienceData] = useState({
     companyName: '',
     positionTitle: '',
@@ -12,7 +14,18 @@ export const Experience = ({ addExperience, removeExperience }) => {
     endDate: '',
     location: '',
     description: '',
+    details: [],
   });
+
+  const handleAddDetail = () => {
+    if (detail.trim()) {
+      setExperienceData(prevData => ({
+        ...prevData,
+        details: [...prevData.details, detail],
+      }));
+      setDetail(''); // Clear the detail input after adding
+    }
+  };
 
   const handleEditExperience = index => {
     setEditingIndex(index);
@@ -33,10 +46,9 @@ export const Experience = ({ addExperience, removeExperience }) => {
     if (
       !experienceData.companyName.trim() ||
       !experienceData.positionTitle.trim() ||
-      !experienceData.endDate.trim() ||
       !experienceData.startDate.trim() ||
-      !experienceData.description.trim() ||
-      !experienceData.location.trim()
+      !experienceData.endDate.trim() ||
+      !experienceData.description.trim()
     ) {
       alert('Please fill in all fields.');
       return;
@@ -57,6 +69,7 @@ export const Experience = ({ addExperience, removeExperience }) => {
       endDate: '',
       location: '',
       description: '',
+      details: [],
     });
   };
 
@@ -73,7 +86,7 @@ export const Experience = ({ addExperience, removeExperience }) => {
 
   return (
     <>
-      <div className={`${isOpen ? 'bg-white p-4' : ''} `}>
+      <div className={`${isOpen ? 'bg-white p-4 mb-4' : ''} `}>
         <div className={`${!isOpen ? 'grid gap-4' : ''} `}>
           {/* title */}
           <div
@@ -109,10 +122,10 @@ export const Experience = ({ addExperience, removeExperience }) => {
             } transition-all duration-300`}
           >
             <label className='flex flex-col gap-2'>
-              Company
+              Company / Projects
               <input
                 type='text'
-                placeholder='Enter Scholl'
+                placeholder='Enter Company or Project'
                 className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
                 name='companyName'
                 value={experienceData.companyName}
@@ -123,7 +136,7 @@ export const Experience = ({ addExperience, removeExperience }) => {
               Position Title
               <input
                 type='text'
-                placeholder='Field of Study'
+                placeholder='Position Title'
                 className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
                 name='positionTitle'
                 value={experienceData.positionTitle}
@@ -178,7 +191,26 @@ export const Experience = ({ addExperience, removeExperience }) => {
               />
             </label>
 
-            <button className='w-fit ml-auto px-6 py-2 bg-blue-500 rounded-md' onClick={handleSubmitForm}>
+            <label className='flex flex-col gap-2'>
+              Details
+              <input
+                type='text'
+                placeholder='Details'
+                className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
+                name='details'
+                value={detail}
+                onChange={e => setDetail(e.target.value)}
+              />
+              <button
+                className='bg-gray-700 w-fit px-3 text-white py-1 rounded-lg'
+                type='button'
+                onClick={handleAddDetail}
+              >
+                Add Details
+              </button>
+            </label>
+
+            <button className='w-fit ml-auto px-8 py-2 bg-blue-500 rounded-md text-white' onClick={handleSubmitForm}>
               Save
             </button>
           </form>
