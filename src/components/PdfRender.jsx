@@ -85,6 +85,11 @@ const MyDocument = ({ personalInfo, experiences, skills, schools }) => (
               <View>
                 <Text>{exp?.description}</Text>
               </View>
+              <View>
+                {exp?.details.map((exp, index) => (
+                  <Text key={index}>{exp}</Text>
+                ))}
+              </View>
             </View>
           ))}
         </View>
@@ -153,7 +158,7 @@ const MyDocument = ({ personalInfo, experiences, skills, schools }) => (
           >
             Education
           </Text>
-          {schools.map((school, index) => (
+          {schools?.map((school, index) => (
             <View style={{ paddingLeft: 8, paddingRight: 8, fontSize: 12 }} className='px-4 mb-4' key={index}>
               <View
                 style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: 8 }}
@@ -192,7 +197,7 @@ const MyDocument = ({ personalInfo, experiences, skills, schools }) => (
 
 export const PdfRender = ({ personalInfo, experiences, skills, schools }) => {
   return (
-    <div className=''>
+    <div className='bg-blue-500 w-fit px-4 py-2 rounded text-white'>
       <PDFDownloadLink
         document={
           <MyDocument personalInfo={personalInfo} schools={schools} experiences={experiences} skills={skills} />
