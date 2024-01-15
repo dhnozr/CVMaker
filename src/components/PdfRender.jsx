@@ -1,25 +1,22 @@
 import React from 'react';
 import { PDFDownloadLink, Document, Page, Text, View, StyleSheet, PDFViewer, Font } from '@react-pdf/renderer';
-/* import cbold from '../fonts/cbold.ttf';
-import citalic from '../fonts/citalic.ttf';
-import clight from '../fonts/clight.ttf'; */
 
-/* Font.register({
+Font.register({
   family: 'Calibri',
   fonts: [
-    { src: cbold, fontWeight: 'bold' },
+    { src: '/src/fonts/cbold.ttf', fontWeight: 'bold' },
     {
-      src: citalic,
+      src: '/src/fonts/citalic.ttf',
       fontStyle: 'italic',
     },
     {
-      src: clight,
+      src: '/src/fonts/clight.ttf',
       fontWeight: 'light',
     },
   ],
-}); */
+});
 
-/* const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   boldText: {
     fontFamily: 'Calibri',
     fontWeight: 'bold',
@@ -32,11 +29,11 @@ import clight from '../fonts/clight.ttf'; */
     fontFamily: 'Calibri',
     fontWeight: 'light',
   },
-}); */
+});
 
 const MyDocument = ({ personalInfo, experiences, skills, schools }) => (
   <Document>
-    <Page size={'A4'}>
+    <Page size={'A4'} style={styles.lightText}>
       <View style={{ paddingLeft: 48, paddingRight: 48, paddingTop: 24 }}>
         <View
           style={{
@@ -87,11 +84,11 @@ const MyDocument = ({ personalInfo, experiences, skills, schools }) => (
             Experience
           </Text>
           {experiences.map((exp, index) => (
-            <View style={{ paddingLeft: 8, paddingRight: 8, fontSize: 12, marginBottom: 16 }} key={index}>
+            <View style={{ paddingLeft: 8, paddingRight: 8, fontSize: 12, marginBottom: 12 }} key={index}>
               <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginBottom: 8 }}>
                 <View>
-                  <Text>{exp?.companyName}</Text>
-                  <Text>{exp?.positionTitle}</Text>
+                  <Text style={styles.boldText}>{exp?.companyName}</Text>
+                  <Text style={styles.italicText}>{exp?.positionTitle}</Text>
                 </View>
                 <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
                   <Text>{exp?.location}</Text>
@@ -189,7 +186,9 @@ const MyDocument = ({ personalInfo, experiences, skills, schools }) => (
                   <Text style={{ fontWeight: 'bold' }} className='font-semibold'>
                     {school?.school}
                   </Text>
-                  <Text className='italic'>{school?.degree}</Text>
+                  <Text style={styles.italicText} className='italic'>
+                    {school?.degree}
+                  </Text>
                 </View>
 
                 <View
