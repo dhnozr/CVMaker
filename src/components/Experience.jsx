@@ -131,7 +131,7 @@ export const Experience = ({ addExperience, removeExperience }) => {
                 onChange={onExperienceChange}
               />
             </label>
-            <label className='flex flex-col'>
+            <label className='flex flex-col gap-2'>
               Position Title
               <input
                 type='text'
@@ -143,7 +143,7 @@ export const Experience = ({ addExperience, removeExperience }) => {
               />
             </label>
             <div className='flex item justify-between gap-4 '>
-              <label className='flex flex-1 flex-col'>
+              <label className='flex flex-1 flex-col gap-2'>
                 Start Date
                 <input
                   type='text'
@@ -154,7 +154,7 @@ export const Experience = ({ addExperience, removeExperience }) => {
                   onChange={onExperienceChange}
                 />
               </label>
-              <label className='flex flex-1 flex-col'>
+              <label className='flex flex-1 flex-col gap-2'>
                 End Date
                 <input
                   type='text'
@@ -166,7 +166,7 @@ export const Experience = ({ addExperience, removeExperience }) => {
                 />
               </label>
             </div>
-            <label className='flex flex-col'>
+            <label className='flex flex-col gap-2'>
               Location
               <input
                 type='text'
@@ -178,7 +178,7 @@ export const Experience = ({ addExperience, removeExperience }) => {
               />
             </label>
 
-            <label className='flex flex-col'>
+            <label className='flex flex-col gap-2'>
               Description
               <input
                 type='text'
@@ -190,7 +190,7 @@ export const Experience = ({ addExperience, removeExperience }) => {
               />
             </label>
 
-            <label className='flex flex-col gap-2'>
+            <label className='flex flex-col gap-2 '>
               Details
               <input
                 type='text'
@@ -201,7 +201,7 @@ export const Experience = ({ addExperience, removeExperience }) => {
                 onChange={e => setDetail(e.target.value)}
               />
               <button
-                className='bg-gray-700 w-fit px-3 text-white py-1 rounded-lg'
+                className='bg-gray-700 w-fit px-3 text-white py-1 rounded-lg mt-2'
                 type='button'
                 onClick={handleAddDetail}
               >

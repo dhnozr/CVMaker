@@ -111,7 +111,7 @@ export const Education = ({ addSchools, removeSchool }) => {
                 onChange={onEducationChange}
               />
             </label>
-            <label className='flex flex-col'>
+            <label className='flex flex-col gap-2'>
               Degree
               <input
                 type='text'
@@ -123,7 +123,7 @@ export const Education = ({ addSchools, removeSchool }) => {
               />
             </label>
             <div className='flex item justify-between gap-4 '>
-              <label className='flex flex-1 flex-col'>
+              <label className='flex flex-1 flex-col gap-2'>
                 Start Date
                 <input
                   type='number'
@@ -134,7 +134,7 @@ export const Education = ({ addSchools, removeSchool }) => {
                   onChange={onEducationChange}
                 />
               </label>
-              <label className='flex flex-1 flex-col'>
+              <label className='flex flex-1 flex-col gap-2'>
                 End Date
                 <input
                   type='number'
@@ -146,7 +146,7 @@ export const Education = ({ addSchools, removeSchool }) => {
                 />
               </label>
             </div>
-            <label className='flex flex-col'>
+            <label className='flex flex-col gap-2'>
               Location
               <input
                 type='text'
@@ -157,7 +157,7 @@ export const Education = ({ addSchools, removeSchool }) => {
                 onChange={onEducationChange}
               />
             </label>
-            <label className='flex flex-col'>
+            <label className='flex flex-col gap-2'>
               Description
               <input
                 type='text'
