@@ -30,14 +30,14 @@ const styles = StyleSheet.create({
 const MyDocument = ({ personalInfo, experiences, skills, schools }) => (
   <Document>
     <Page size={'A4'} style={styles.normalText}>
-      <View style={{ padding: 12 }}>
+      <View style={{ paddingLeft: 48, paddingRight: 48, paddingTop: 12 }}>
         <View
           style={{
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            marginBottom: 12,
+            marginBottom: 8,
             fontSize: 12,
           }}
         >
@@ -58,7 +58,7 @@ const MyDocument = ({ personalInfo, experiences, skills, schools }) => (
         <View style={{ marginBottom: 16 }}>
           <Text
             style={{
-              fontSize: 16,
+              fontSize: 13,
               textTransform: 'uppercase',
               borderBottom: 1,
               borderColor: 'black',
@@ -93,7 +93,7 @@ const MyDocument = ({ personalInfo, experiences, skills, schools }) => (
         <View className='mb-4' style={{ marginBottom: 16 }}>
           <Text
             style={{
-              fontSize: 16,
+              fontSize: 13,
               textTransform: 'uppercase',
               borderBottom: 1,
               borderColor: 'black',
@@ -143,7 +143,7 @@ const MyDocument = ({ personalInfo, experiences, skills, schools }) => (
         <View>
           <Text
             style={{
-              fontSize: 16,
+              fontSize: 13,
               textTransform: 'uppercase',
               borderBottom: 1,
               borderColor: 'black',
