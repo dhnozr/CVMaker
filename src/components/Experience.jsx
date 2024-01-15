@@ -182,7 +182,7 @@ export const Experience = ({ addExperience, removeExperience }) => {
               Description
               <input
                 type='text'
-                placeholder='Optional'
+                placeholder='This one will generate plain text. :)'
                 className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
                 name='description'
                 value={experienceData.description}
@@ -194,7 +194,7 @@ export const Experience = ({ addExperience, removeExperience }) => {
               Details
               <input
                 type='text'
-                placeholder='Details'
+                placeholder='This one will generate list item with bullet points :)'
                 className='shadow-sm bg-slate-100 rounded-lg  indent-2 p-1'
                 name='details'
                 value={detail}
